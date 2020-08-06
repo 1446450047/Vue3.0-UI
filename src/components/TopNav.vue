@@ -16,6 +16,8 @@
 
 <style scoped lang="scss">
     .topNav {
+        position: relative;
+        z-index: 10;
         background: #ffffff;
         padding: 16px;
         display: flex;
