@@ -47,7 +47,8 @@
         position: fixed;
         top: 0;
         left: 0;
-        min-height: 100vh;
+        height: 100vh;
+        overflow: auto;
         padding-top: 65px;;
         background: #F9F9F9;
         box-shadow: 0 0 5px rgb(0,0,0,0.25);
@@ -63,4 +64,13 @@
             }
         }
     }
+    main{
+        padding-top: 70px;
+        padding-left: 270px;
+        @media (max-width: 500px) {
+            padding-left: 0;
+            padding-top: 60px;
+        }
+    }
+
 </style>

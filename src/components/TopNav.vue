@@ -30,9 +30,11 @@
 </script>
 
 <style scoped lang="scss">
-
     .topNav {
-        position: relative;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 0;
         z-index: 10;
         background: #ffffff;
         padding: 16px;

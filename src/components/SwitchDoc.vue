@@ -1,10 +1,12 @@
 <template>
-    <div>tabs</div>
+    <Switch/>
 </template>
 
 <script lang="ts">
+    import Switch from "../lib/Switch.vue";
     export default {
-        name: "Tabs"
+        name: "SwitchDoc",
+        components: {Switch}
     };
 </script>
 

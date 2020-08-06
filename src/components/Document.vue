@@ -1,12 +1,10 @@
 <template>
-    <div>
-        dialog
-    </div>
+    <div>首页示例</div>
 </template>
 
 <script lang="ts">
     export default {
-        name: "Dialog"
+        name: "Document"
     };
 </script>
 

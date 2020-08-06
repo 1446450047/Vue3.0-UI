@@ -1,10 +1,11 @@
 import {createRouter, createWebHashHistory} from "vue-router";
 import Doc from "./views/Doc.vue";
-import Switch from "./components/Switch.vue";
-import Button from "./components/Button.vue";
-import Dialog from "./components/Dialog.vue";
-import Tabs from "./components/Tabs.vue";
+import SwitchDoc from "./components/SwitchDoc.vue";
+import ButtonDoc from "./components/ButtonDoc.vue";
+import DialogDoc from "./components/DialogDoc.vue";
+import TabsDoc from "./components/TabsDoc.vue";
 import Home from "./views/Home.vue";
+import Document from "./components/Document.vue";
 
 const history = createWebHashHistory();
 export const router = createRouter({
@@ -12,10 +13,11 @@ export const router = createRouter({
     routes: [
         {path: "/", component: Home},
         {path: "/document", component: Doc,children:[
-                {path:'switch',component: Switch},
-                {path:'button',component: Button},
-                {path:'dialog',component: Dialog},
-                {path:'tabs',component: Tabs}
+                {path:'',component: Document},
+                {path:'switch',component: SwitchDoc},
+                {path:'button',component: ButtonDoc},
+                {path:'dialog',component: DialogDoc},
+                {path:'tabs',component: TabsDoc}
             ]}
     ]
 });

@@ -1,12 +1,10 @@
 <template>
-    <div>
-        button
-    </div>
+    <div>tabs</div>
 </template>
 
 <script lang="ts">
     export default {
-        name: "Button"
+        name: "TabsDoc"
     };
 </script>
 
