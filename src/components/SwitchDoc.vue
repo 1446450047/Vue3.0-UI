@@ -1,12 +1,17 @@
 <template>
-    <Switch/>
+    <Switch v-model:checked="checked" />
 </template>
 
 <script lang="ts">
     import Switch from "../lib/Switch.vue";
+    import {ref} from "vue"
     export default {
         name: "SwitchDoc",
-        components: {Switch}
+        components: {Switch},
+        setup(){
+            const checked = ref(false)
+            return {checked}
+        }
     };
 </script>
 

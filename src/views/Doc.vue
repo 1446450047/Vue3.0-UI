@@ -45,6 +45,7 @@
         width: 250px;
         padding-left:1em;
         position: fixed;
+        z-index: 5;
         top: 0;
         left: 0;
         height: 100vh;
