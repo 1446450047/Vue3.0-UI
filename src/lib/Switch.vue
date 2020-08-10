@@ -1,5 +1,5 @@
 <template>
-    <button :class="{checked}" @click="toggleChecked">
+    <button class="Vue3-switch" :class="{'Vue3-checked':checked}" @click="toggleChecked">
         <span></span>
     </button>
 </template>
@@ -19,8 +19,8 @@
     };
 </script>
 
-<style scoped lang="scss">
-    button {
+<style  lang="scss">
+    .Vue3-switch {
         border: 1px solid #747474;
         height: 32px;
         width: 64px;
@@ -44,11 +44,10 @@
             outline: none;
         }
 
-        &.checked {
+        &.Vue3-checked {
             > span {
                 left: 31px;
             }
-
             background: #1890FF;
             border: 1px solid #1890FF;
         }

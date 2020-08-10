@@ -5,6 +5,9 @@
             size="small"
     >点我
     </Button>
+    <Button theme="button">文字</Button>
+    <Button theme="link">文字</Button>
+    <Button theme="text">文字</Button>
 </template>
 
 <script lang="ts">
