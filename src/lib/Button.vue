@@ -1,19 +1,17 @@
 <template>
-    <div>
         <button>
-            <slot></slot>
+            <slot/>
         </button>
-    </div>
 </template>
 
 <script lang="ts">
     export default {
-        name: "Button"
+        name: "Button",
     };
 </script>
 
 <style scoped lang="scss">
-    div{
+    div {
         padding: 16px;
         border: 1px solid red;
     }
