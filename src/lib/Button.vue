@@ -44,8 +44,8 @@
     $shadow: rgba(64, 169, 255, 0.25);
     $active-border: #2C73FF;
     .Vue3-button {
-        width: $width;
-        height: $height;
+        min-width: $width;
+        min-height: $height;
         border-radius: $radius;
         padding: $padding;
         border: 1px solid grey;
@@ -86,6 +86,19 @@
                 color: lighten($blue, 15%);
             }
 
+            &.Vue3-size-big {
+                font-size: 24px;
+                height: 44px;
+                padding: 0 40px;
+            }
+
+            &.Vue3-size-small {
+                font-size: 12px;
+                height: 22px;
+                padding: 4px 6px;
+            }
+
+
         }
 
         &.Vue3-theme-text {
@@ -94,16 +107,31 @@
             color: $blue;
 
             &:hover, &:active {
-                background: #FAFAFA;
+                background: #2d2646;
+                padding: 0 8px;
+            }
+
+            &.Vue3-size-big {
+                font-size: 24px;
+                height: 44px;
+                padding: 0 40px;
+
+            }
+            &.Vue3-size-small {
+                font-size: 12px;
+                height: 22px;
+                padding: 4px 6px;
             }
         }
-        &.Vue3-theme-button{
-            &.Vue3-size-big{
+
+        &.Vue3-theme-button {
+            &.Vue3-size-big {
                 font-size: 24px;
                 height: 44px;
                 padding: 0 40px;
             }
-            &.Vue3-size-small{
+
+            &.Vue3-size-small {
                 font-size: 12px;
                 height: 22px;
                 padding: 4px 6px;
