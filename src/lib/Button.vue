@@ -60,5 +60,25 @@
             box-shadow: 0 0 16px $shadow;
             border: 1px solid $active-border;
         }
+
+        &.Vue3-button-link {
+            border: none;
+            box-shadow: none;
+            color: $blue;
+
+            &:hover, &:active {
+                color: lighten($blue, 15%);
+            }
+        }
+
+        &.Vue3-button-text {
+            border: none;
+            box-shadow: none;
+            color: $blue;
+
+            &:hover, &:active {
+                background: #FAFAFA;
+            }
+        }
     }
 </style>
