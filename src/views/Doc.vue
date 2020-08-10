@@ -69,7 +69,7 @@
         padding-top: 70px;
         padding-left: 270px;
         @media (max-width: 500px) {
-            padding-left: 0;
+            padding-left: 16px;
             padding-top: 60px;
         }
     }
