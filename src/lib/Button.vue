@@ -1,20 +1,36 @@
 <template>
     <button class="Vue3-button"
-            :class="{[`Vue3-button-${theme}`]:theme}"
+            :class="classes"
     >
         <slot/>
     </button>
 </template>
 
 <script lang="ts">
+    import {computed} from "vue";
+
     export default {
         name: "Button",
         props: {
             theme: {
                 type: String,
                 default: "button"
+            },
+            size: {
+                type: String,
+                default: "normal"
             }
         },
+        setup(props: any) {
+            const classes = computed(() => {
+                return {
+                    [`Vue3-theme-${props.theme}`]: props.theme,
+                    [`Vue3-size-${props.size}`]: props.size,
+
+                };
+            });
+            return {classes};
+        }
 
     };
 </script>
@@ -29,7 +45,7 @@
     $active-border: #2C73FF;
     .Vue3-button {
         width: $width;
-        min-height: $height;
+        height: $height;
         border-radius: $radius;
         padding: $padding;
         border: 1px solid grey;
@@ -61,7 +77,7 @@
             border: 1px solid $active-border;
         }
 
-        &.Vue3-button-link {
+        &.Vue3-theme-link {
             border: none;
             box-shadow: none;
             color: $blue;
@@ -69,15 +85,28 @@
             &:hover, &:active {
                 color: lighten($blue, 15%);
             }
+
         }
 
-        &.Vue3-button-text {
+        &.Vue3-theme-text {
             border: none;
             box-shadow: none;
             color: $blue;
 
             &:hover, &:active {
                 background: #FAFAFA;
+            }
+        }
+        &.Vue3-theme-button{
+            &.Vue3-size-big{
+                font-size: 24px;
+                height: 44px;
+                padding: 0 40px;
+            }
+            &.Vue3-size-small{
+                font-size: 12px;
+                height: 22px;
+                padding: 4px 6px;
             }
         }
     }
