@@ -18,10 +18,8 @@
         components: {Button},
         setup() {
             const onclick = () => {
-                console.log("hi");
             };
             const onmouseover = () => {
-                console.log("over");
             };
             return {onclick, onmouseover};
         }
