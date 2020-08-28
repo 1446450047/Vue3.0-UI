@@ -13,9 +13,15 @@
         <div>内容22222</div>
       </template>
       <template v-slot:title>
-        <b>标题</b>
+        <strong>标题</strong>
       </template>
     </Dialog>
+    <br>
+    <br>
+
+    <p>示例二</p>
+    <br>
+    <Button>打开dialog</Button>
   </div>
 </template>
 

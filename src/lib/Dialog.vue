@@ -1,20 +1,22 @@
 <template>
   <template v-if="visible">
-    <div class="Vue3-dialog-overlay" @click="clickOverlayToClose"></div>
-    <div class="Vue3-dialog-wrapper">
-      <div class="Vue3-dialog">
-        <header>
-          <slot name="title"/>
-          <span class="Vue3-dialog-close" @click="close"></span></header>
-        <main>
-          <slot name="content" />
-        </main>
-        <footer>
-          <Button level="main" @click="ok">确定</Button>
-          <Button @click="cancel">取消</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="Vue3-dialog-overlay" @click="clickOverlayToClose"></div>
+      <div class="Vue3-dialog-wrapper">
+        <div class="Vue3-dialog">
+          <header>
+            <slot name="title"/>
+            <span class="Vue3-dialog-close" @click="close"></span></header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button level="main" @click="ok">确定</Button>
+            <Button @click="cancel">取消</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 
