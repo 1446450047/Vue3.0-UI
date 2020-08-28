@@ -9,8 +9,8 @@
           <p>main主要内容</p>
         </main>
         <footer>
-          <Button level="main">确定</Button>
-          <Button>取消</Button>
+          <Button level="main" @click="ok">确定</Button>
+          <Button @click="cancel">取消</Button>
         </footer>
       </div>
     </div>
@@ -31,6 +31,12 @@ export default {
     clickOverlayToClose: {
       type: Boolean,
       default: true
+    },
+    ok: {
+      type: Function,
+    },
+    cancel: {
+      type: Function
     }
   },
   setup(props, context) {
@@ -38,9 +44,21 @@ export default {
       context.emit("update:visible", false);
     };
     const clickOverlayToClose = () => {
-      props.clickOverlayToClose && close()
+      props.clickOverlayToClose && close();
     };
-    return {close,clickOverlayToClose};
+    //点击ok后先执行外面传进来的ok，然后再运行这个ok
+    const ok = () => {
+      if(props.ok && props.ok() !== false){
+        close()
+      }
+    };
+    //点击cancel后执行外面传进来的cancel之后再关闭
+    const cancel = () => {
+      props.cancel();
+      close()
+    };
+
+    return {close, clickOverlayToClose, ok, cancel};
   }
 };
 </script>

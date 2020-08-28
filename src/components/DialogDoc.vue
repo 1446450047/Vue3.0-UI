@@ -3,7 +3,7 @@
     <p>示例一</p>
     <br>
     <Button @click="toggle">toggle</Button>
-    <Dialog v-model:visible="visible" :clickOverlayToClose="true"/>
+    <Dialog v-model:visible="visible" :clickOverlayToClose="true" :ok="ok" :cancel="cancel"/>
   </div>
 </template>
 
@@ -20,7 +20,11 @@ export default {
     const toggle = () => {
       visible.value = !visible.value;
     };
-    return {visible, toggle};
+    const ok = () => {
+    };
+    const cancel = () => {
+    };
+    return {visible, toggle, ok, cancel};
 
   }
 };
