@@ -1,0 +1,112 @@
+<template>
+  <template v-if="visible">
+    <div class="Vue3-dialog-overlay"></div>
+    <div class="Vue3-dialog-wrapper">
+      <div class="Vue3-dialog">
+        <header>标题 <span class="Vue3-dialog-close"></span></header>
+        <main>
+          <p>dialog组件展示dialog组件展示dialog组件展示dialog组件展示dialog组件展示dialog组件展示dialog组件展示dialog组件展示dialog组件展示</p>
+          <p>main主要内容</p>
+        </main>
+        <footer>
+          <Button level="main">确定</Button>
+          <Button>取消</Button>
+        </footer>
+      </div>
+    </div>
+  </template>
+</template>
+
+<script lang="ts">
+import Button from "./Button.vue";
+
+export default {
+  name: "Dialog",
+  components: {Button},
+  props:{
+    visible:{
+      type: Boolean,
+      default: false,
+    }
+  }
+};
+</script>
+
+<style scoped lang="scss">
+$overlay: #969595;
+$wrapperBG: #fff;
+$bottomColor: #969595;
+$radius: 4px;
+.Vue3-dialog-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: $overlay;
+  opacity: 0.75;
+}
+
+.Vue3-dialog-wrapper {
+  min-width: 15em;
+  background: $wrapperBG;
+  border-radius: $radius;
+  z-index: 11;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  > .Vue3-dialog {
+    padding: 12px 16px;
+
+    > header {
+      font-size: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid $bottomColor;
+      text-align: center;
+
+      > span {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        &::before, &::after {
+          content: " ";
+          position: absolute;
+          height: 100%;
+          width: 1px;
+          background: $bottomColor;
+          left: 50%;
+        }
+
+        &::before {
+          transform: rotate(-45deg);
+        }
+
+        &::after {
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    > main {
+      padding: 20px;
+      border-bottom: 1px solid $bottomColor;
+    }
+
+    > footer {
+      display: flex;
+      padding-top: 20px;
+
+      > button:first-child {
+        margin-right: 50px;
+      }
+    }
+  }
+}
+</style>
