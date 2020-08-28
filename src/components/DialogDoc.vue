@@ -1,23 +1,26 @@
 <template>
-  <p>示例一</p>
-  <br>
-  <Button @click="toggle">toggle</Button>
-  <Dialog v-model:visible="x"/>
+  <div>
+    <p>示例一</p>
+    <br>
+    <Button @click="toggle">toggle</Button>
+    <Dialog v-model:visible="visible" :clickOverlayToClose="true"/>
+  </div>
 </template>
 
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue";
 import Button from "../lib/Button.vue";
-import {ref} from 'vue'
+import {ref} from "vue";
+
 export default {
   name: "DialogDoc",
   components: {Button, Dialog},
   setup() {
-    const x = ref(false)
-    const toggle = ()=>{
-      x.value= !x.value
-    }
-    return {x,toggle};
+    const visible = ref(false);
+    const toggle = () => {
+      visible.value = !visible.value;
+    };
+    return {visible, toggle};
 
   }
 };

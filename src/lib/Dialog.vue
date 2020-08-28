@@ -1,6 +1,6 @@
 <template>
   <template v-if="visible">
-    <div class="Vue3-dialog-overlay"></div>
+    <div class="Vue3-dialog-overlay" @click="clickOverlayToClose"></div>
     <div class="Vue3-dialog-wrapper">
       <div class="Vue3-dialog">
         <header>标题 <span class="Vue3-dialog-close" @click="close"></span></header>
@@ -27,13 +27,20 @@ export default {
     visible: {
       type: Boolean,
       default: false,
+    },
+    clickOverlayToClose: {
+      type: Boolean,
+      default: true
     }
   },
   setup(props, context) {
     const close = () => {
       context.emit("update:visible", false);
     };
-    return {close}
+    const clickOverlayToClose = () => {
+      props.clickOverlayToClose && close()
+    };
+    return {close,clickOverlayToClose};
   }
 };
 </script>
