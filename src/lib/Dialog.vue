@@ -3,7 +3,7 @@
     <div class="Vue3-dialog-overlay"></div>
     <div class="Vue3-dialog-wrapper">
       <div class="Vue3-dialog">
-        <header>标题 <span class="Vue3-dialog-close"></span></header>
+        <header>标题 <span class="Vue3-dialog-close" @click="close"></span></header>
         <main>
           <p>dialog组件展示dialog组件展示dialog组件展示dialog组件展示dialog组件展示dialog组件展示dialog组件展示dialog组件展示dialog组件展示</p>
           <p>main主要内容</p>
@@ -23,11 +23,17 @@ import Button from "./Button.vue";
 export default {
   name: "Dialog",
   components: {Button},
-  props:{
-    visible:{
+  props: {
+    visible: {
       type: Boolean,
       default: false,
     }
+  },
+  setup(props, context) {
+    const close = () => {
+      context.emit("update:visible", false);
+    };
+    return {close}
   }
 };
 </script>
@@ -75,6 +81,7 @@ $radius: 4px;
         display: inline-block;
         position: relative;
         cursor: pointer;
+
         &::before, &::after {
           content: " ";
           position: absolute;

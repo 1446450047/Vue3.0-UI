@@ -2,7 +2,7 @@
   <p>示例一</p>
   <br>
   <Button @click="toggle">toggle</Button>
-  <Dialog :visible="x"/>
+  <Dialog v-model:visible="x"/>
 </template>
 
 <script lang="ts">
