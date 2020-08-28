@@ -3,7 +3,19 @@
     <p>示例一</p>
     <br>
     <Button @click="toggle">toggle</Button>
-    <Dialog v-model:visible="visible" :clickOverlayToClose="true" :ok="ok" :cancel="cancel"/>
+    <Dialog v-model:visible="visible"
+            :clickOverlayToClose="true"
+            :ok="ok"
+            :cancel="cancel"
+    >
+      <template v-slot:content>
+        <div>内容11111</div>
+        <div>内容22222</div>
+      </template>
+      <template v-slot:title>
+        <b>标题</b>
+      </template>
+    </Dialog>
   </div>
 </template>
 
