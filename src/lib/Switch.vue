@@ -18,7 +18,6 @@
         }
     };
 </script>
-
 <style  lang="scss">
     .Vue3-switch {
         border: 1px solid #747474;

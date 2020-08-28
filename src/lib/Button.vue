@@ -1,7 +1,9 @@
 <template>
     <button class="Vue3-button"
             :class="classes"
+            :disable="disable"
     >
+        <span class="Vue3-loading" v-if="loading"></span>
         <slot/>
     </button>
 </template>
@@ -19,6 +21,18 @@
             size: {
                 type: String,
                 default: "normal"
+            },
+            level: {
+                type: String,
+                default: "normal"
+            },
+            disable: {
+                type: Boolean,
+                default: false
+            },
+            loading:{
+                type:Boolean,
+                default:false
             }
         },
         setup(props: any) {
@@ -26,6 +40,7 @@
                 return {
                     [`Vue3-theme-${props.theme}`]: props.theme,
                     [`Vue3-size-${props.size}`]: props.size,
+                    [`Vue3-level-${props.level}`]: props.level,
 
                 };
             });
@@ -81,7 +96,14 @@
             border: none;
             box-shadow: none;
             color: $blue;
-
+            &[disable=true]{
+                cursor: not-allowed;
+                color: gray;
+                border: none;
+                &:hover, &:active{
+                    color: gray;
+                }
+            }
             &:hover, &:active {
                 color: lighten($blue, 15%);
             }
@@ -98,14 +120,24 @@
                 padding: 4px 6px;
             }
 
+            &.Vue3-level-main {
+                color: $blue;
+            }
 
+            &.Vue3-level-danger {
+                color: red;
+            }
         }
 
         &.Vue3-theme-text {
             border: none;
             box-shadow: none;
             color: $blue;
-
+            &[disable=true]{
+                cursor: not-allowed;
+                color: gray;
+                border: none;
+            }
             &:hover, &:active {
                 background: #2d2646;
                 padding: 0 8px;
@@ -117,14 +149,31 @@
                 padding: 0 40px;
 
             }
+
             &.Vue3-size-small {
                 font-size: 12px;
                 height: 22px;
                 padding: 4px 6px;
             }
+
+            &.Vue3-level-main:hover, &.Vue3-level-main:active {
+                background: $blue;
+                color: #fff;
+            }
+
+            &.Vue3-level-danger:hover, &.Vue3-level-danger:active {
+                background: red;
+                color: #fff;
+            }
         }
 
         &.Vue3-theme-button {
+            &[disable=true]{
+                cursor: not-allowed;
+                background: #484d47;
+                color: gray;
+                border: none;
+            }
             &.Vue3-size-big {
                 font-size: 24px;
                 height: 44px;
@@ -136,6 +185,36 @@
                 height: 22px;
                 padding: 4px 6px;
             }
+
+            &.Vue3-level-main {
+                border: none;
+                background: $blue;
+                color: #fff;
+            }
+
+            &.Vue3-level-danger {
+                border: none;
+                background: red;
+                color: #fff;
+            }
         }
+        @keyframes loading {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        >.Vue3-loading{
+            width: 14px;
+            height: 14px;
+            border: 2px solid $blue;
+            margin-right: 4px;
+            border-radius: 50%;
+            border-color:  $blue $blue $blue transparent;
+            animation: loading 1s  infinite linear;
+        }
+
     }
 </style>

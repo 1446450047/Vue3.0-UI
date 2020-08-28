@@ -35,6 +35,40 @@
     <Button theme="text" size='normal'>normal text</Button>&nbsp;&nbsp;
     <Button theme="text" size="small">small text</Button>
 
+    <p>示例三:支持level</p>
+    <br>
+    <br>
+
+    <Button>default</Button>&nbsp;&nbsp;
+    <Button level="main">main button</Button>&nbsp;&nbsp;
+    <Button level="danger">danger button</Button>
+
+    <br>
+    <br>
+    <Button theme="link">default link</Button>&nbsp;&nbsp;
+    <Button theme="link" level="main">main link</Button>&nbsp;&nbsp;
+    <Button theme="link" level="danger">danger link</Button>
+
+    <br>
+    <br>
+    <Button theme="text">default link</Button>&nbsp;&nbsp;
+    <Button theme="text" level="main">main link</Button>&nbsp;&nbsp;
+    <Button theme="text" level="danger">danger link</Button>
+    <br><br>
+
+    <p>示例四:支持disable</p>
+    <br><br>
+    <Button disable>disable</Button>
+    <Button disable theme="link">disable link</Button>
+    <Button disable theme="text">disable text</Button>
+    <br>
+    <br>
+    <br>
+    <p>示例五: 支持loading</p>
+    <br>
+    <br>
+    <Button loading>loading</Button>
+    <br><br>
 </template>
 
 <script lang="ts">
