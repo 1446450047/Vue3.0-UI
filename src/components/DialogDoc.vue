@@ -44,7 +44,7 @@ export default {
     const cancel = () => {
     };
     const showDialog = () => {
-      showOpenDialog({title:"标题",content:"内容",ok:()=>{/*OK*/},cancel:()=>{}})
+      showOpenDialog({title:"标题",content:"内容",ok:()=>{/*OK*/},cancel:()=>{},clickOverlayToClose:true})
     };
     return {visible, toggle, ok, cancel, showDialog};
 
