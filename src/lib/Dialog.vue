@@ -29,7 +29,7 @@ export default {
   props: {
     visible: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     clickOverlayToClose: {
       type: Boolean,
@@ -42,7 +42,7 @@ export default {
       type: Function
     },
   },
-  setup(props, context) {
+  setup(props:any, context:any) {
     const close = () => {
       context.emit("update:visible", false);
     };
@@ -57,7 +57,7 @@ export default {
     };
     //点击cancel后执行外面传进来的cancel之后再关闭
     const cancel = () => {
-      props.cancel();
+      props.cancel && props.cancel();
       close();
     };
 

@@ -21,7 +21,7 @@
 
     <p>示例二</p>
     <br>
-    <Button>打开dialog</Button>
+    <Button @click="showDialog">showDialog</Button>
   </div>
 </template>
 
@@ -29,6 +29,7 @@
 import Dialog from "../lib/Dialog.vue";
 import Button from "../lib/Button.vue";
 import {ref} from "vue";
+import {showOpenDialog} from "../lib/openDialog";
 
 export default {
   name: "DialogDoc",
@@ -42,7 +43,10 @@ export default {
     };
     const cancel = () => {
     };
-    return {visible, toggle, ok, cancel};
+    const showDialog = () => {
+      showOpenDialog({title:"标题",content:"内容",ok:()=>{/*OK*/},cancel:()=>{}})
+    };
+    return {visible, toggle, ok, cancel, showDialog};
 
   }
 };
