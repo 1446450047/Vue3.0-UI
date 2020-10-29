@@ -40,7 +40,7 @@ export default {
       visible.value = !visible.value;
     };
     const ok = () => {
-    };
+    }; 
     const cancel = () => {
     };
     const showDialog = () => {
