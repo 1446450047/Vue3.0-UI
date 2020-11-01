@@ -1,8 +1,9 @@
 <template>
+  <p>Tabs组件示例</p>
   <Tabs>
-    <Tab title="导航1"></Tab>
-    <Tab title="导航2"></Tab>
-    <Tab title="导航3"></Tab>
+    <Tab title="导航1">内容一</Tab>
+    <Tab title="导航2">内容二</Tab>
+    <Tab title="导航3">内容三</Tab>
   </Tabs>
 </template>
 
