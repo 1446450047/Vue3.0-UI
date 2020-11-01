@@ -1,10 +1,15 @@
 <template>
   <div class=" Vue3-Tabs">
     <div class="Vue3-Tabs-nav">
-      <div class="Vue3-Tabs-items" v-for="(t, index) in titles " :key="index">{{ t }}</div>
+      <div class="Vue3-Tabs-item"
+           :class="{selected : t=== selected}"
+           @click="select(t)"
+           v-for="(t, index) in titles " :key="index">{{ t }}
+      </div>
     </div>
     <div class="Vue3-Tabs-content">
-      <component v-for="(c ,index) in defaults" :is="c" :key="index"/>
+      <component class="Vue3-Tabs-content-item" v-for="(c) in defaults"
+                 :is="c" :class="{selected : c.props.title === selected}"/>
     </div>
   </div>
 </template>
@@ -15,6 +20,11 @@ import Tab from "./Tab.vue";
 export default {
   name: "Tabs",
   components: {Tab},
+  props: {
+    selected: {
+      type: String
+    }
+  },
   setup(props: any, context: any) {
     const defaults = context.slots.default();
     defaults.forEach((tag: any) => {
@@ -25,33 +35,45 @@ export default {
     const titles = defaults.map((tag: any) => {
       return tag.props.title;
     });
-
-    return {defaults, titles};
+    const select = (t:string) => {
+        context.emit("update:selected",t)
+    };
+    return {defaults, titles, select};
   }
 };
 </script>
 
-<style scoped lang="scss">
-$border-color : #d9d9d9;
+<style  lang="scss">
+$border-color: #d9d9d9;
 $blue: #40a9ff;
-  .Vue3-Tabs{
-    &-nav{
-      display: flex;
-      border-bottom: 1px solid $border-color  ;
-    }
-    &-items{
-      padding: 8px 16px;
-      &:first-child{
-        padding-left: 0;
-      }
+.Vue3-Tabs {
+  &-nav {
+    display: flex;
+    border-bottom: 1px solid $border-color;
+  }
 
-      &.selected{
-        color: $blue;
-      }
+  &-item {
+    padding: 8px 16px;
+
+    &:first-child {
+      padding-left: 0;
     }
-    &-content{
-      padding-top: 8px;
+
+    &.selected {
+      color: $blue;
+    }
+  }
+
+  &-content {
+    padding-top: 8px;
+  &-item{
+      display: none;
+      &.selected {
+        display: block;
+      }
     }
 
   }
+
+}
 </style>
