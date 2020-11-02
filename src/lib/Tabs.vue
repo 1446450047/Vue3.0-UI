@@ -4,7 +4,7 @@
       <div class="Vue3-Tabs-item"
            :class="{selected : t=== selected}"
            @click="select(t)"
-           :ref="el=>{if(el) navItems[index] = el}"
+           :ref="el=>{if(t === selected) selectedItem = el}"
            v-for="(t, index) in titles " :key="index">{{ t }}
       </div>
       <div class="Vue3-Tabs-item-indicator" ref="indicator"></div>
@@ -29,14 +29,12 @@ export default {
     }
   },
   setup(props: any, context: any) {
-    const navItems = ref<HTMLDivElement[]>([]);
+    const selectedItem = ref<HTMLDivElement>()
     const defaults = context.slots.default();
     const indicator = ref<HTMLDivElement>();
     const container = ref<HTMLDivElement>()
     const x = () => {
-      const divs = navItems.value;
-      const result = divs.filter(div => div.classList.contains("selected"))[0];
-      const {width,left:left2} = result.getBoundingClientRect();
+      const {width,left:left2} = selectedItem.value && selectedItem.value.getBoundingClientRect() || {width:0,left:0};
       indicator.value && (indicator.value.style.width = width + "px");
       const left1 = container.value && container.value.getBoundingClientRect().left || 0;
       indicator.value && (indicator.value.style.left = left2 - left1 + "px");
@@ -54,7 +52,7 @@ export default {
     const select = (t: string) => {
       context.emit("update:selected", t);
     };
-    return {defaults, titles, select, navItems, indicator,container};
+    return {defaults, titles, select, selectedItem, indicator,container};
   }
 };
 </script>
