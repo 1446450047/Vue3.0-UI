@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import Tab from "./Tab.vue";
-import {ref, onMounted, onUpdated} from "vue";
+import {ref, watchEffect} from "vue";
 
 export default {
   name: "Tabs",
@@ -39,8 +39,7 @@ export default {
       const left1 = container.value && container.value.getBoundingClientRect().left || 0;
       indicator.value && (indicator.value.style.left = left2 - left1 + "px");
     };
-    onMounted(x)
-    onUpdated(x)
+    watchEffect(x)
     defaults.forEach((tag: any) => {
       if (tag.type !== Tab) {
         throw new Error("Tabs 的 子组件必须为Tab组件");
