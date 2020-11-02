@@ -6,6 +6,7 @@
            @click="select(t)"
            v-for="(t, index) in titles " :key="index">{{ t }}
       </div>
+      <div class="Vue3-Tabs-item-indicator"></div>
     </div>
     <div class="Vue3-Tabs-content">
       <component class="Vue3-Tabs-content-item" v-for="(c) in defaults"
@@ -48,6 +49,8 @@ $border-color: #d9d9d9;
 $blue: #40a9ff;
 .Vue3-Tabs {
   &-nav {
+    position: relative;
+
     display: flex;
     border-bottom: 1px solid $border-color;
   }
@@ -61,6 +64,14 @@ $blue: #40a9ff;
 
     &.selected {
       color: $blue;
+    }
+    &-indicator{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: $blue;
+      width: 100px;
     }
   }
 
