@@ -48,6 +48,11 @@
 </script>
 
 <style scoped lang="scss">
+.router-link-exact-active{
+  color: #EDC4CF;
+  text-decoration: underline;
+  font-size: 20px;
+}
     aside {
         width: 250px;
         padding-left:1em;
