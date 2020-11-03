@@ -1,8 +1,15 @@
 <template>
     <div>
-        <TopNav  />
+        <TopNav :toggleMean="true"  />
         <div class="content">
             <aside v-if="asideVisible">
+              <h2>文档</h2>
+              <ol>
+                <li><router-link to="/document/introduce">介绍</router-link></li>
+                <li><router-link to="/document/install">安装</router-link></li>
+                <li><router-link to="/document/start">开始使用</router-link></li>
+
+              </ol>
                 <h2>组件列表</h2>
                 <ol>
                     <li>
@@ -66,11 +73,11 @@
         }
     }
     main{
-        padding-top: 70px;
+        padding-top: 80px;
         padding-left: 270px;
         @media (max-width: 500px) {
             padding-left: 16px;
-            padding-top: 60px;
+            padding-top: 70px;
         }
     }
 
