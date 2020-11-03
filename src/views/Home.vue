@@ -5,7 +5,7 @@
       <h1>Vue3.0-UI</h1>
       <h2>Vue3.0的造轮子</h2>
       <p class="actions">
-        <router-link to="/document">
+        <router-link to="/document/introduce">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-start"></use>
           </svg>
