@@ -4,7 +4,7 @@
     <div class="demo">
       <h2>常规用发</h2>
       <div class="demo-component">
-        <Switch1Demo/>
+        <Switch v-model:checked="checked1" />
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -32,7 +32,7 @@
     <div class="demo">
       <h2>支持disabled</h2>
       <div class="demo-component">
-      <Switch2Demo/>
+        <Switch disabled v-model:checked="checked1" />
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -63,16 +63,18 @@
 <script lang="ts">
     import Switch from "../lib/Switch.vue";
     import Button from "../lib/Button.vue";
-    import Switch2Demo from "./demo/Switch2.demo.vue";
-    import Switch1Demo from "./demo/Switch1.demo.vue";
     import 'prismjs';
     import 'prismjs/themes/prism.css'
+    import {ref } from "vue"
     const Prism = (window as any).Prism
     export default {
         name: "SwitchDoc",
-        components: {Switch1Demo,Switch2Demo, Button, Switch},
+        components: {Button, Switch},
       setup(){
-          return{Prism}
+          const checked1 = ref(false);
+        const checked2 = ref(false);
+
+        return{Prism,checked1,checked2}
       }
     };
 </script>
