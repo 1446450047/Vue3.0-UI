@@ -4,7 +4,7 @@
     <div class="demo">
       <h2>常规用发</h2>
       <div class="demo-component">
-        <Switch v-model:checked="checked1" />
+        <Switch1Demo/>
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -16,7 +16,7 @@
     <div class="demo">
       <h2>支持disabled</h2>
       <div class="demo-component">
-        <Switch disabled v-model:checked="checked2" />
+      <Switch2Demo/>
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -33,17 +33,13 @@
 
 <script lang="ts">
     import Switch from "../lib/Switch.vue";
-    import {ref} from "vue"
     import Button from "../lib/Button.vue";
+    import Switch2Demo from "./demo/Switch2.demo.vue";
+    import Switch1Demo from "./demo/Switch1.demo.vue";
     export default {
         name: "SwitchDoc",
-        components: {Button, Switch},
-        setup(){
-            const checked1 = ref(false)
-          const checked2 = ref(false)
+        components: {Switch1Demo,Switch2Demo, Button, Switch},
 
-          return {checked1,checked2}
-        }
     };
 </script>
 
