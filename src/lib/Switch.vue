@@ -1,5 +1,5 @@
 <template>
-    <button class="Vue3-switch" :class="{'Vue3-checked':checked}" @click="toggleChecked">
+    <button class="Vue3-switch"   :class="{'Vue3-checked':checked}" @click="toggleChecked">
         <span></span>
     </button>
 </template>
