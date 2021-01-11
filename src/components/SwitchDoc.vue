@@ -11,6 +11,22 @@
       </div>
       <div class="demo-code">
         <pre>&lt;Switch v-model:value:"bool"/&gt;</pre>
+       <pre>
+&lt;template>
+  &lt;Switch v-model:checked="checked1" /&gt;
+&lt;/template>
+&lt;script lang="ts">
+  import Switch from "../../lib/Switch.vue";
+  import {ref} from "vue";
+  export default {
+  name: "Switch1Demo",
+  components: {Switch},
+  setup(){
+     const checked1 = ref(false)
+     return {checked1}
+  }
+}
+&lt;/script&gt;</pre>
       </div>
     </div>
     <div class="demo">
@@ -23,12 +39,25 @@
       </div>
       <div class="demo-code">
         <pre>&lt;Switch disabled v-model:value:"bool"/&gt;</pre>
+        <pre>
+&lt;template>
+  &lt;Switch disabled v-model:checked="checked1" /&gt;
+&lt;/template>
+&lt;script lang="ts">
+  import Switch from "../../lib/Switch.vue";
+  import {ref} from "vue";
+  export default {
+  name: "Switch1Demo",
+  components: {Switch},
+  setup(){
+     const checked1 = ref(false)
+     return {checked1}
+  }
+}
+&lt;/script&gt;</pre>
       </div>
     </div>
   </div>
-
-
-
 </template>
 
 <script lang="ts">
@@ -36,10 +65,14 @@
     import Button from "../lib/Button.vue";
     import Switch2Demo from "./demo/Switch2.demo.vue";
     import Switch1Demo from "./demo/Switch1.demo.vue";
+
     export default {
         name: "SwitchDoc",
         components: {Switch1Demo,Switch2Demo, Button, Switch},
+      setup(){
 
+
+      }
     };
 </script>
 
@@ -60,8 +93,9 @@ $border-color:#d9d9d9;
  >.demo-code{
    padding: 16px;
    >pre{
+     padding: 16px;
      font-family: Consolas, 'Courier New', Courier, monospace;
-
+    border:1px solid $border-color;
    }
  }
 }
