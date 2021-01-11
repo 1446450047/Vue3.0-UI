@@ -11,22 +11,22 @@
       </div>
       <div class="demo-code">
         <pre>&lt;Switch v-model:value:"bool"/&gt;</pre>
-       <pre>
-&lt;template>
-  &lt;Switch v-model:checked="checked1" /&gt;
-&lt;/template>
-&lt;script lang="ts">
+        <pre class="language-html" v-html='Prism.highlight(`
+  &lt;template>
+    &lt;Switch v-model:checked="checked1" /&gt;
+  &lt;/template>
+  &lt;script lang="ts">
   import Switch from "../../lib/Switch.vue";
   import {ref} from "vue";
   export default {
-  name: "Switch1Demo",
-  components: {Switch},
-  setup(){
-     const checked1 = ref(false)
-     return {checked1}
+    name: "Switch1Demo",
+    components: {Switch},
+    setup(){
+      const checked1 = ref(false)
+       return {checked1}
+    }
   }
-}
-&lt;/script&gt;</pre>
+  &lt;/script&gt;`,Prism.languages.html,"html")'></pre>
       </div>
     </div>
     <div class="demo">
@@ -39,22 +39,22 @@
       </div>
       <div class="demo-code">
         <pre>&lt;Switch disabled v-model:value:"bool"/&gt;</pre>
-        <pre>
-&lt;template>
-  &lt;Switch disabled v-model:checked="checked1" /&gt;
-&lt;/template>
-&lt;script lang="ts">
+        <pre class="language-html" v-html='Prism.highlight(`
+  &lt;template>
+    &lt;Switch disabled v-model:checked="checked1" /&gt;
+  &lt;/template>
+  &lt;script lang="ts">
   import Switch from "../../lib/Switch.vue";
   import {ref} from "vue";
   export default {
-  name: "Switch1Demo",
-  components: {Switch},
-  setup(){
-     const checked1 = ref(false)
-     return {checked1}
+    name: "Switch1Demo",
+    components: {Switch},
+    setup(){
+      const checked1 = ref(false)
+       return {checked1}
+    }
   }
-}
-&lt;/script&gt;</pre>
+  &lt;/script&gt;`,Prism.languages.html,"html")'></pre>
       </div>
     </div>
   </div>
@@ -65,13 +65,14 @@
     import Button from "../lib/Button.vue";
     import Switch2Demo from "./demo/Switch2.demo.vue";
     import Switch1Demo from "./demo/Switch1.demo.vue";
-
+    import 'prismjs';
+    import 'prismjs/themes/prism.css'
+    const Prism = (window as any).Prism
     export default {
         name: "SwitchDoc",
         components: {Switch1Demo,Switch2Demo, Button, Switch},
       setup(){
-
-
+          return{Prism}
       }
     };
 </script>
