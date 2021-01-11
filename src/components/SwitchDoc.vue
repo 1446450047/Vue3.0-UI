@@ -65,11 +65,13 @@
     import Button from "../lib/Button.vue";
     import 'prismjs';
     import 'prismjs/themes/prism.css'
-    import {ref } from "vue"
     const Prism = (window as any).Prism
+
+    import {ref } from "vue"
+    import Demo from "./Demo.vue";
     export default {
         name: "SwitchDoc",
-        components: {Button, Switch},
+        components: {Demo, Button, Switch},
       setup(){
           const checked1 = ref(false);
         const checked2 = ref(false);
