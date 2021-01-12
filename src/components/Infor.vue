@@ -2,7 +2,7 @@
   <div class="Vue3-information">
     <div class="Vue3-information-icon">
       <svg class="icon" aria-hidden="true">
-        <use :xlink:href=[`#icon-${icon}`]></use>
+        <use :xlink:href="[`#icon-${icon}`]"></use>
       </svg>
     </div>
     <div class="Vue3-information-text">
